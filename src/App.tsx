@@ -1,12 +1,8 @@
-import { useState } from 'react';
 import { type ReactElement } from 'react';
-import './App.css';
+import { Router } from './Routes/Router';
 
 const App = (): ReactElement => {
-  const [blogPosts, setBlogPosts] = useState([]);
-  const [blogPost, setBlogPost] = useState({ title: '', description: '' });
-
-  return <div></div>;
+  return <Router />;
 };
 
 export default App;
