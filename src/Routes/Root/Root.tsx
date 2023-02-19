@@ -1,12 +1,20 @@
-import { type ReactElement } from 'react';
-import { Outlet } from 'react-router-dom';
+import { paths } from '../../utils/paths';
+import { type ReactElement, useEffect } from 'react';
+import { useNavigate, Outlet } from 'react-router-dom';
+import useSessionService from '../../hooks/useSessionService';
 
 const Root = (): ReactElement => {
-  const status = 'auth';
+  const navigate = useNavigate();
+  const { data } = useSessionService();
 
-  if (status === 'loading') {
-    return <div>loading</div>;
-  }
+  useEffect(() => {
+    if (!data) {
+      navigate(paths.loginPage);
+    }
+    if (data) {
+      navigate(paths.dashboard);
+    }
+  }, []);
 
   return <Outlet />;
 };
