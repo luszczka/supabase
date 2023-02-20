@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { supabase } from '../client';
 import { type UserLogOut } from '../dataTypes/UserLogOut';
 
@@ -9,10 +9,6 @@ const useSignOut = (): UserLogOut => {
     const { error } = await supabase.auth.signOut();
     setError(error);
   };
-
-  useEffect(() => {
-    void signOut();
-  }, []);
   return { error, signOut };
 };
 

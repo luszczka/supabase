@@ -1,20 +1,20 @@
 import { paths } from '../../utils/paths';
 import { type ReactElement, useEffect } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-import useSessionService from '../../hooks/useSessionService';
+import useSessionProvider from '../../hooks/useSessionProvider';
 
 const Root = (): ReactElement => {
   const navigate = useNavigate();
-  const { data } = useSessionService();
+  const { session } = useSessionProvider();
 
   useEffect(() => {
-    if (!data) {
+    if (!session) {
       navigate(paths.loginPage);
     }
-    if (data) {
+    if (session) {
       navigate(paths.dashboard);
     }
-  }, []);
+  }, [session]);
 
   return <Outlet />;
 };
