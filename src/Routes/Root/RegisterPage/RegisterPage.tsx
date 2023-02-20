@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { type ReactElement, useState, type ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
-import useRegister from '../../../hooks/useRegister';
+import useUserData from '../../../hooks/useUserData';
+import { SupabasePaths } from '../../../utils/supabasePaths';
 import { paths } from '../../../utils/paths';
+import Input from '../../../components/Input/Input';
 
 const RegisterPage = (): ReactElement => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const { register } = useRegister({ email, password });
+
+  const supabasePath = SupabasePaths.signUp;
+  const { postData } = useUserData({ email, password, supabasePath });
 
   const updateEmailInput = (inputValue: ChangeEvent<HTMLInputElement>): void => {
     setEmail(inputValue.target.value);
@@ -20,7 +24,7 @@ const RegisterPage = (): ReactElement => {
     <div>
       <div>Register page</div>
       <div>
-        <input
+        <Input
           value={email}
           onChange={(data) => {
             updateEmailInput(data);
@@ -29,7 +33,7 @@ const RegisterPage = (): ReactElement => {
         />
       </div>
       <div>
-        <input
+        <Input
           value={password}
           onChange={(data) => {
             updatePasswordInput(data);
@@ -38,7 +42,7 @@ const RegisterPage = (): ReactElement => {
         />
       </div>
       <div>
-        <button onClick={register}>register</button>
+        <button onClick={postData}>register</button>
       </div>
       <div>
         <Link to={paths.loginPage}>log in</Link>

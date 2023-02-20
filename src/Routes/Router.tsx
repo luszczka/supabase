@@ -13,7 +13,7 @@ export const Router = (): ReactElement => {
       <Routes>
         <Route element={<Root />} path={paths.root}>
           <Route element={<RegisterPage />} path={paths.registerPage} />
-          <Route element={<LoginPage />} path={paths.loginPage} />
+          <Route element={<LoginPage />} path={paths.loginPage} index />
           <Route element={<Protected />} path={paths.root}>
             <Route element={<Dashboard />} path={paths.dashboard} index />
           </Route>

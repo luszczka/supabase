@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { type ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import { paths } from '../../../../utils/paths';
+import useSignOut from '../../../../hooks/useSignOut';
 
 const Dashboard = (): ReactElement => {
+  const { signOut } = useSignOut();
+
   return (
     <div>
       <div>Dashboard</div>
-      <Link to={paths.loginPage}>log out</Link>
+      <button onClick={signOut}>log me out</button>
     </div>
   );
 };
