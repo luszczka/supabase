@@ -1,7 +1,6 @@
 import { type Session } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { supabase } from '../client';
-
 export interface SessionType {
   session: Session | null;
 }

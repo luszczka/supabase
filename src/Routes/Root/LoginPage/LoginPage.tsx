@@ -11,7 +11,7 @@ const LoginPage = (): ReactElement => {
   const [password, setPassword] = useState<string>('');
 
   const supabasePath = SupabasePaths.signIn;
-  const { postData } = useUserData({ email, password, supabasePath });
+  const { postData, data } = useUserData({ email, password, supabasePath });
 
   const updateEmailInput = (inputValue: ChangeEvent<HTMLInputElement>): void => {
     setEmail(inputValue.target.value);
@@ -20,6 +20,8 @@ const LoginPage = (): ReactElement => {
   const updatePasswordInput = (inputValue: ChangeEvent<HTMLInputElement>): void => {
     setPassword(inputValue.target.value);
   };
+
+  console.log(data);
 
   return (
     <div>

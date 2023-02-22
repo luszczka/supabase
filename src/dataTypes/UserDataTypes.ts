@@ -41,6 +41,7 @@ export interface User {
 }
 
 export interface AppMetadata {
+  claims_admin?: boolean;
   provider: string;
   providers: [];
 }
