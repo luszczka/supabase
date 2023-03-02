@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { supabase } from '../client';
-import { type NoResponseDataType, type ResponseDataType, type UseUserDataType } from '../dataTypes/UserDataTypes';
+import { type NoResponseDataType, type ResponseDataType, type UseUserDataType } from '../dataTypes/Types';
 import { type SupabasePaths } from '../utils/supabasePaths';
 
 interface Props {
@@ -22,9 +22,6 @@ const useUserData = ({ email, password, supabasePath }: Props): UseUserDataType 
     setData(data);
   };
 
-  useEffect(() => {
-    void postData();
-  }, []);
   return { data, error, postData };
 };
 
