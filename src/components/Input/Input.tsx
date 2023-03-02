@@ -6,8 +6,8 @@ interface Props extends HTMLProps<HTMLInputElement> {
   value: string;
 }
 
-const Input = ({ onChange, placeholder, value }: Props): ReactElement => {
-  return <input placeholder={placeholder} onChange={onChange} value={value} />;
+const Input = ({ onChange, placeholder, value, ...rest }: Props): ReactElement => {
+  return <input placeholder={placeholder} onChange={onChange} value={value} {...rest} />;
 };
 
 export default Input;

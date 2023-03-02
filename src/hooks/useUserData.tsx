@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '../client';
-import { type NoResponseDataType, type ResponseDataType, type UseUserDataType } from '../dataTypes/UserDataTypes';
+import { type NoResponseDataType, type ResponseDataType, type UseUserDataType } from '../dataTypes/Types';
 import { type SupabasePaths } from '../utils/supabasePaths';
 
 interface Props {
