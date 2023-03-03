@@ -4,6 +4,13 @@ export interface UseUserDataType {
   postData: () => Promise<void>;
 }
 
+export interface ProfileData {
+  avatar_url: string;
+  id: string;
+  username: string;
+  website: string;
+}
+
 export interface ResponseDataType {
   user: User | null;
   session: Session | null;
